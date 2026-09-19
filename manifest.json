@@ -7,10 +7,16 @@
   "theme_color": "#1e1e24",
   "icons": [
     {
-      "src": "https://via.placeholder.com/512.png",
+      "src": "https://dummyimage.com/512x512/1e1e24/ffffff.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "https://dummyimage.com/512x512/1e1e24/ffffff.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
