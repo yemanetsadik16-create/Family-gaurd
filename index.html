@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Family Guard | የቤተሰብ ጥበቃ | ናይ ስድራቤት ሓለዋ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Noto+Sans+Ethiopic:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F4EFE6;
+      --bg2: #EAE2D5;
+      --card: #FDFBF7;
+      --ink: #0F3029;
+      --ink-soft: #44655D;
+      --gold: #9A7226;
+      --gold-light: #C4A05A;
+      --gold-surface: #F5ECD7;
+      --border: #E2D7C3;
+      --border-strong: #CFC1A6;
+      --danger: #BA1A1A;
+      --danger-surface: #FFEDEA;
+      --success: #1E6B37;
+      --radius: 20px;
+      --shadow: 0 10px 30px rgba(15, 48, 41, 0.07);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans Ethiopic', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%);
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 16px;
+      line-height: 1.45;
+    }
+
+    #app-container {
+      width: 100%;
+      max-width: 440px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-bottom: 40px;
+    }
+
+    /* Top Navigation Header */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 4px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--ink), #1b4d42);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-light);
+      font-size: 20px;
+      box-shadow: 0 4px 12px rgba(15, 48, 41, 0.2);
+    }
+
+    .brand-text {
+      font-family: 'Playfair Display', 'Noto Sans Ethiopic', Georgia, serif;
+      font-size: 21px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.3px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .lang-btn {
+      background: var(--card);
+      border: 1px solid var(--border-strong);
+      color: var(--ink);
+      font-weight: 600;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+
+    /* Panel Cards */
+    .panel {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 20px;
+      border: 1px solid var(--border);
+      position: relative;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold-light), var(--gold), var(--gold-light));
+      opacity: 0.85;
+    }
+
+    .panel-title {
+      font-family: 'Playfair Display', 'Noto Sans Ethiopic', Georgia, serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .panel-desc {
+      font-size: 13px;
+      color: var(--ink-soft);
+      margin-bottom: 16px;
+    }
+
+    /* Buttons */
+    .btn {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.15s ease;
+      font-family: inherit;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), #85611e);
+      color: #FFF;
+      box-shadow: 0 4px 14px rgba(154, 114, 38, 0.25);
+    }
+
+    .btn-outline {
+      background: var(--card);
+      color: var(--gold);
+      border: 1.5px solid var(--gold);
+    }
+
+    .btn-subtle {
+      background: var(--bg2);
+      color: var(--ink);
+      font-size: 13px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      width: auto;
+    }
+
+    .btn-danger-subtle {
+      background: var(--danger-surface);
+      color: var(--danger);
+      font-size: 13px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      width: auto;
+    }
+
+    /* Code Display Tiles */
+    .code-grid {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin: 16px 0;
+    }
+
+    .code-box {
+      width: 38px;
+      height: 48px;
+      background: var(--gold-surface);
+      border: 1.5px solid var(--gold-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: monospace;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    /* Switches & App Rows */
+    .row-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .row-item:last-child {
+      border-bottom: none;
+    }
+
+    .row-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .app-icon-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--bg2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .row-title {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--ink);
+    }
+
+    .row-subtitle {
+      font-size: 12px;
+      color: var(--ink-soft);
+    }
+
+    /* Switch toggle */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 46px;
+      height: 26px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #D1C5B0;
+      transition: .25s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .25s;
+      border-radius: 50%;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    input:checked + .slider {
+      background-color: var(--danger);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(20px);
+    }
+
+    /* Activity Logs */
+    .log-list {
+      max-height: 220px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .log-item {
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: var(--bg2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    .log-time {
+      font-size: 11px;
+      color: var(--ink-soft);
+    }
+
+    /* Child Launcher Grid */
+    .child-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .child-app-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.1s ease;
+      box-shadow: 0 4px 12px rgba(15, 48, 41, 0.04);
+      user-select: none;
+    }
+
+    .child-app-card:active {
+      transform: scale(0.95);
+    }
+
+    .child-app-card.locked {
+      background: #EAE3D5;
+      border-color: #D6C9B0;
+      opacity: 0.82;
+    }
+
+    .child-app-icon {
+      font-size: 32px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    }
+
+    .child-app-name {
+      font-size: 12px;
+      font-weight: 600;
+      text-align: center;
+      color: var(--ink);
+    }
+
+    .lock-badge {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background: var(--danger);
+      color: white;
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    /* Modal Dialog */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(15, 48, 41, 0.5);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 1000;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--card);
+      border-radius: 22px;
+      width: 100%;
+      max-width: 360px;
+      padding: 24px;
+      text-align: center;
+      border: 1px solid var(--border-strong);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+    }
+
+    .modal-icon.locked {
+      background: var(--danger-surface);
+      color: var(--danger);
+    }
+
+    .modal-icon.allowed {
+      background: #E8F5E9;
+      color: var(--success);
+    }
+
+    .modal-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .modal-desc {
+      font-size: 14px;
+      color: var(--ink-soft);
+      margin-bottom: 20px;
+    }
+
+    /* Input */
+    .text-input {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1.5px solid var(--border-strong);
+      background: var(--card);
+      font-size: 18px;
+      font-family: monospace;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--ink);
+      outline: none;
+      margin-bottom: 16px;
+    }
+
+    .text-input:focus {
+      border-color: var(--gold);
+    }
+  </style>
+</head>
+<body>
+
+<div id="app-container">
+
+  <!-- Top Header -->
+  <header class="header">
+    <div class="brand">
+      <div class="brand-icon">🛡️</div>
+      <div class="brand-text">Family Guard</div>
+    </div>
+    <div class="header-actions">
+      <button class="lang-btn" onclick="toggleLanguage()">
+        🌐 <span id="current-lang-label">EN</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- SCREEN 1: Role Select Screen -->
+  <section id="screen-role" class="panel" style="display: none;">
+    <h1 class="panel-title" data-i18n="who">Who is using this phone?</h1>
+    <p class="panel-desc" data-i18n="selectRole">Choose how this device will be configured.</p>
+    <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+      <button class="btn btn-gold" onclick="setRole('parent')">
+        👑 <span data-i18n="imParent">I am the parent</span>
+      </button>
+      <button class="btn btn-outline" onclick="setRole('child')">
+        📱 <span data-i18n="imChild">This is my child's phone</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- SCREEN 2: Connect Child Screen -->
+  <section id="screen-child-connect" class="panel" style="display: none;">
+    <h2 class="panel-title" data-i18n="linkTitle">Connect to Parent</h2>
+    <p class="panel-desc" data-i18n="linkDesc">Ask your parent for the 8-character Family Code shown on their screen.</p>
+    
+    <input type="text" id="input-child-code" class="text-input" placeholder="ABCD1234" maxlength="8" autocomplete="off" autocorrect="off">
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <button class="btn btn-gold" onclick="connectChild()">
+        🔗 <span data-i18n="connect">Connect</span>
+      </button>
+      <button class="btn btn-outline" onclick="resetRole()">
+        ↩️ <span data-i18n="back">Back</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- SCREEN 3: Parent Dashboard -->
+  <section id="screen-parent" style="display: none; flex-direction: column; gap: 16px;">
+    
+    <!-- Code Panel -->
+    <div class="panel">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <div>
+          <h2 class="panel-title" data-i18n="familyCode">Family Code</h2>
+          <p class="panel-desc" data-i18n="codeHelp" style="margin-bottom: 4px;">Enter this code on your child's phone.</p>
+        </div>
+        <button class="btn btn-subtle" onclick="copyCode()" data-i18n="copy">Copy</button>
+      </div>
+      <div class="code-grid" id="parent-code-tiles"></div>
+    </div>
+
+    <!-- App Blocking Panel -->
+    <div class="panel">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+        <h2 class="panel-title" data-i18n="appsTitle">App Controls</h2>
+        <div style="display: flex; gap: 6px;">
+          <button class="btn btn-subtle" onclick="setAllApps(true)" data-i18n="blockAll">Block all</button>
+          <button class="btn btn-subtle" onclick="setAllApps(false)" data-i18n="unblockAll">Unblock all</button>
+        </div>
+      </div>
+      <p class="panel-desc" data-i18n="appsDesc">Switch toggle ON (red) to lock an app on child's device.</p>
+      
+      <div id="parent-apps-list"></div>
+    </div>
+
+    <!-- Bedtime Lock Panel -->
+    <div class="panel">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <h2 class="panel-title" data-i18n="bedtimeTitle">Bedtime Lock</h2>
+          <p class="panel-desc" style="margin: 0;" data-i18n="bedtimeDesc">Lock all apps during sleep hours</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="bedtime-toggle" onchange="toggleBedtime(this.checked)">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div style="display: flex; gap: 12px; margin-top: 14px;">
+        <div style="flex: 1;">
+          <span style="font-size: 12px; color: var(--ink-soft);" data-i18n="from">From</span>
+          <input type="time" id="bedtime-from" value="21:00" onchange="updateBedtimeHours()" style="width: 100%; padding: 8px; border-radius: 8px; border: 1px solid var(--border-strong); background: var(--bg2); font-family: inherit;">
+        </div>
+        <div style="flex: 1;">
+          <span style="font-size: 12px; color: var(--ink-soft);" data-i18n="to">Until</span>
+          <input type="time" id="bedtime-to" value="07:00" onchange="updateBedtimeHours()" style="width: 100%; padding: 8px; border-radius: 8px; border: 1px solid var(--border-strong); background: var(--bg2); font-family: inherit;">
+        </div>
+      </div>
+    </div>
+
+    <!-- Activity Log Panel -->
+    <div class="panel">
+      <h2 class="panel-title" data-i18n="activityTitle">Activity Log</h2>
+      <p class="panel-desc" data-i18n="activityDesc">Live log of blocked access attempts.</p>
+      <div class="log-list" id="activity-logs">
+        <div style="text-align: center; color: var(--ink-soft); font-size: 13px; padding: 12px;" data-i18n="noActivity">No blocked attempts recorded yet.</div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 8px;">
+      <button class="btn btn-danger-subtle" onclick="resetRole()" data-i18n="unpair">Disconnect & Reset</button>
+    </div>
+
+  </section>
+
+  <!-- SCREEN 4: Child Home Screen -->
+  <section id="screen-child-home" style="display: none; flex-direction: column; gap: 16px;">
+    
+    <div class="panel">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <h2 class="panel-title" data-i18n="childHome">My Apps</h2>
+          <p class="panel-desc" style="margin: 0;" data-i18n="tapApp">Tap an app to open</p>
+        </div>
+        <span id="child-bedtime-status" style="font-size: 12px; font-weight: 700; color: var(--danger); display: none;">🌙 <span data-i18n="bedtimeActive">Bedtime Active</span></span>
+      </div>
+
+      <div class="child-grid" id="child-app-grid"></div>
+    </div>
+
+    <div style="text-align: center;">
+      <button class="btn btn-subtle" onclick="resetRole()" data-i18n="switchRole">Switch Role / Unlink</button>
+    </div>
+
+  </section>
+
+</div>
+
+<!-- Modal Sheet Dialog -->
+<div class="modal-overlay" id="app-modal">
+  <div class="modal-box">
+    <div class="modal-icon" id="modal-icon">🔒</div>
+    <h3 class="modal-title" id="modal-title">YouTube is Locked</h3>
+    <p class="modal-desc" id="modal-desc">This app is restricted by your parent.</p>
+    <button class="btn btn-gold" id="modal-btn" onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+<script>
+  // Configuration
+  const DB_BASE = "https://chat-bb77d-default-rtdb.firebaseio.com";
+
+  // App Catalog
+  const APPS = [
+    { id: "youtube", nameKey: "app_youtube", defName: "YouTube", icon: "▶️" },
+    { id: "tiktok", nameKey: "app_tiktok", defName: "TikTok", icon: "🎵" },
+    { id: "roblox", nameKey: "app_roblox", defName: "Roblox", icon: "🎮" },
+    { id: "instagram", nameKey: "app_instagram", defName: "Instagram", icon: "📸" },
+    { id: "games", nameKey: "app_games", defName: "Games", icon: "🕹️" },
+    { id: "whatsapp", nameKey: "app_whatsapp", defName: "WhatsApp", icon: "💬" },
+    { id: "maps", nameKey: "app_maps", defName: "Google Maps", icon: "🗺️" },
+    { id: "school", nameKey: "app_school", defName: "School / Canvas", icon: "📚" }
+  ];
+
+  // Translations
+  const TRANSLATIONS = {
+    en: {
+      who: "Who is using this phone?",
+      selectRole: "Choose how this device will be configured.",
+      imParent: "I am the parent",
+      imChild: "This is my child's phone",
+      linkTitle: "Connect to Parent",
+      linkDesc: "Ask your parent for the 8-character Family Code shown on their screen.",
+      connect: "Connect",
+      back: "Back",
+      familyCode: "Family Code",
+      codeHelp: "Enter this code on your child's phone.",
+      copy: "Copy",
+      copied: "Copied!",
+      appsTitle: "App Controls",
+      appsDesc: "Switch toggle ON (red) to lock an app on child's device.",
+      blockAll: "Block all",
+      unblockAll: "Unblock all",
+      bedtimeTitle: "Bedtime Lock",
+      bedtimeDesc: "Lock all apps during sleep hours",
+      from: "From",
+      to: "Until",
+      activityTitle: "Activity Log",
+      activityDesc: "Live log of blocked access attempts.",
+      noActivity: "No blocked attempts recorded yet.",
+      unpair: "Disconnect & Reset",
+      childHome: "My Apps",
+      tapApp: "Tap an app to open",
+      bedtimeActive: "Bedtime Active",
+      switchRole: "Switch Role / Unlink",
+      lockedMsg: "This app is restricted by your parent.",
+      bedtimeMsg: "Bedtime lock is active. All apps are locked until morning.",
+      launchApp: "Open App",
+      close: "Close",
+      blocked: "Locked",
+      allowed: "Allowed",
+      app_youtube: "YouTube",
+      app_tiktok: "TikTok",
+      app_roblox: "Roblox",
+      app_instagram: "Instagram",
+      app_games: "Games",
+      app_whatsapp: "WhatsApp",
+      app_maps: "Google Maps",
+      app_school: "School / Canvas"
+    },
+    am: {
+      who: "ይህንን ስልክ ማን ነው የሚጠቀመው?",
+      selectRole: "ይህ ስልክ እንዴት እንደሚዋቀር ይምረጡ።",
+      imParent: "እኔ ወላጅ ነኝ",
+      imChild: "ይህ የልጄ ስልክ ነው",
+      linkTitle: "ከወላጅ ጋር ይገናኙ",
+      linkDesc: "በወላጅ ስክሪን ላይ የሚታየውን ባለ 8-ፊደል የቤተሰብ ኮድ ያስገቡ።",
+      connect: "አገናኝ",
+      back: "ተመለስ",
+      familyCode: "የቤተሰብ ኮድ",
+      codeHelp: "ይህንን ኮድ በልጅዎ ስልክ ላይ ያስገቡ።",
+      copy: "ቅዳ",
+      copied: "ተቀድቷል!",
+      appsTitle: "የመተግበሪያ ቁጥጥር",
+      appsDesc: "በልጅዎ ስልክ ላይ መተግበሪያን ለመቆለፍ ቀይ ያብሩ።",
+      blockAll: "ሁሉንም ዝጋ",
+      unblockAll: "ሁሉንም ክፈት",
+      bedtimeTitle: "የመኝታ ሰዓት መቆለፊያ",
+      bedtimeDesc: "በመኝታ ሰዓት መተግበሪያዎችን በሙሉ ይቆልፋል",
+      from: "ከ",
+      to: "እስከ",
+      activityTitle: "የእንቅስቃሴ ታሪክ",
+      activityDesc: "የተከለከሉ ሙከራዎች ቀጥታ መዝገብ።",
+      noActivity: "ምንም የተመዘገበ ሙከራ የለም።",
+      unpair: "አቋርጥ እና አድስ",
+      childHome: "የእኔ መተግበሪያዎች",
+      tapApp: "ለመክፈት መተግበሪያውን ይጫኑ",
+      bedtimeActive: "የመኝታ ሰዓት በርቷል",
+      switchRole: "ሚና ቀይር",
+      lockedMsg: "ይህ መተግበሪያ በወላጅዎ ተቆልፏል።",
+      bedtimeMsg: "የመኝታ ሰዓት በመሆኑ ሁሉም መተግበሪያዎች ተቆልፈዋል።",
+      launchApp: "መተግበሪያውን ክፈት",
+      close: "ዝጋ",
+      blocked: "ተቆልፏል",
+      allowed: "ተፈቅዷል",
+      app_youtube: "ዩቲዩብ (YouTube)",
+      app_tiktok: "ቲክቶክ (TikTok)",
+      app_roblox: "ሮብሎክስ (Roblox)",
+      app_instagram: "ኢንስታግራም (Instagram)",
+      app_games: "ጨዋታዎች (Games)",
+      app_whatsapp: "ዋትስአፕ (WhatsApp)",
+      app_maps: "ጉግል ካርታ (Maps)",
+      app_school: "የትምህርት መተግበሪያ (School)"
+    },
+    ti: {
+      who: "ነዚ ሞባይል መን እዩ ዝጥቀመሉ?",
+      selectRole: "እዚ ሞባይል ከመይ ከምዝዋቀር ምረጹ።",
+      imParent: "ኣነ ወላዲ እየ",
+      imChild: "ናይ ወደይ/ጓለይ ሞባይል እዩ",
+      linkTitle: "ምስ ወላዲ ተራኸብ",
+      linkDesc: "ኣብ ናይ ወላዲ ስክሪን ዘሎ ናይ 8-ፊደላት ናይ ስድራቤት ኮድ ኣእቱ።",
+      connect: "ኣራኽብ",
+      back: "ተመለስ",
+      familyCode: "ናይ ስድራቤት ኮድ",
+      codeHelp: "ነዚ ኮድ ኣብ ናይ ቆልዓኻ ሞባይል ኣእትዎ።",
+      copy: "ቅዳሕ",
+      copied: "ተቐዲሑ!",
+      appsTitle: "ምቁጽጻር ኣፕሊኬሽናት",
+      appsDesc: "ኣብ ናይ ቆልዓኻ ሞባይል ኣፕሊኬሽን ንምዕጻው ቀይሕ ግበሮ።",
+      blockAll: "ኩሉ ዕጾ",
+      unblockAll: "ኩሉ ክፈት",
+      bedtimeTitle: "ናይ ድቃስ ሰዓት ዕጽዋ",
+      bedtimeDesc: "ኣብ ናይ ድቃስ ሰዓት ኩሉ ኣፕሊኬሽናት ይዕጾ",
+      from: "ካብ",
+      to: "ክሳብ",
+      activityTitle: "ናይ ንጥፈታት መዝገብ",
+      activityDesc: "ዝተኸልከሉ ፈተነታት ዝምዝገበሉ ቦታ።",
+      noActivity: "ዝተመዝገበ ፈተነ የለን።",
+      unpair: "ኣቋርጽን ዳግማይ ጀምርን",
+      childHome: "ናተይ ኣፕሊኬሽናት",
+      tapApp: "ንምኽፋት ጸቅጢ",
+      bedtimeActive: "ናይ ድቃስ ሰዓት በሪሁ ኣሎ",
+      switchRole: "ተራ ቐይር",
+      lockedMsg: "እዚ ኣፕሊኬሽን ብወላዲኻ ተዓጽዩ ኣሎ።",
+      bedtimeMsg: "ናይ ድቃስ ሰዓት ስለዝኾነ ኩሉ ኣፕሊኬሽናት ተዓጽዩ ኣሎ።",
+      launchApp: "ኣፕሊኬሽን ክፈት",
+      close: "ዕጾ",
+      blocked: "ተዓጽዩ",
+      allowed: "ፍቑድ",
+      app_youtube: "ዩቱዩብ (YouTube)",
+      app_tiktok: "ቲክቶክ (TikTok)",
+      app_roblox: "ሮብሎክስ (Roblox)",
+      app_instagram: "ኢንስታግራም (Instagram)",
+      app_games: "ጸወታታት (Games)",
+      app_whatsapp: "ዋትስኣፕ (WhatsApp)",
+      app_maps: "ጉግል ካርታ (Maps)",
+      app_school: "ናይ ትምህርቲ ኣፕ (School)"
+    }
+  };
+
+  // State
+  let state = {
+    lang: localStorage.getItem("fg_lang") || "en",
+    role: localStorage.getItem("fg_role") || null,
+    code: localStorage.getItem("fg_code") || null,
+    apps: {},
+    bedtime: { on: false, from: "21:00", to: "07:00" },
+    logs: []
+  };
+
+  function t(key) {
+    return (TRANSLATIONS[state.lang] && TRANSLATIONS[state.lang][key]) || TRANSLATIONS.en[key] || key;
+  }
+
+  function applyTranslations() {
+    document.getElementById("current-lang-label").innerText = state.lang.toUpperCase();
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      el.innerText = t(key);
+    });
+    renderParentApps();
+    renderChildApps();
+  }
+
+  function toggleLanguage() {
+    const list = ["en", "am", "ti"];
+    const idx = (list.indexOf(state.lang) + 1) % list.length;
+    state.lang = list[idx];
+    localStorage.setItem("fg_lang", state.lang);
+    applyTranslations();
+  }
+
+  function generateCode() {
+    const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+    let res = "";
+    for (let i = 0; i < 8; i++) {
+      res += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return res;
+  }
+
+  function setRole(r) {
+    state.role = r;
+    localStorage.setItem("fg_role", r);
+    if (r === "parent") {
+      if (!state.code) {
+        state.code = generateCode();
+        localStorage.setItem("fg_code", state.code);
+      }
+      initParent();
+    } else {
+      if (state.code) {
+        initChild();
+      } else {
+        showScreen("screen-child-connect");
+      }
+    }
+    syncRemote();
+  }
+
+  function resetRole() {
+    state.role = null;
+    state.code = null;
+    localStorage.removeItem("fg_role");
+    localStorage.removeItem("fg_code");
+    showScreen("screen-role");
+  }
+
+  function showScreen(id) {
+    ["screen-role", "screen-child-connect", "screen-parent", "screen-child-home"].forEach(s => {
+      const el = document.getElementById(s);
+      if (el) el.style.display = (s === id) ? (s.startsWith("screen-parent") || s.startsWith("screen-child-home") ? "flex" : "block") : "none";
+    });
+  }
+
+  // Parent Logic
+  function initParent() {
+    showScreen("screen-parent");
+    renderCodeTiles();
+    renderParentApps();
+    document.getElementById("bedtime-toggle").checked = state.bedtime.on;
+    document.getElementById("bedtime-from").value = state.bedtime.from || "21:00";
+    document.getElementById("bedtime-to").value = state.bedtime.to || "07:00";
+    fetchRemoteData();
+  }
+
+  function renderCodeTiles() {
+    const container = document.getElementById("parent-code-tiles");
+    container.innerHTML = "";
+    const code = state.code || "--------";
+    for (let c of code) {
+      const box = document.createElement("div");
+      box.className = "code-box";
+      box.innerText = c;
+      container.appendChild(box);
+    }
+  }
+
+  function copyCode() {
+    navigator.clipboard.writeText(state.code || "");
+    const btn = event.target;
+    const old = btn.innerText;
+    btn.innerText = t("copied");
+    setTimeout(() => btn.innerText = old, 1500);
+  }
+
+  function renderParentApps() {
+    const list = document.getElementById("parent-apps-list");
+    list.innerHTML = "";
+    APPS.forEach(app => {
+      const isBlocked = !!state.apps[app.id];
+      const row = document.createElement("div");
+      row.className = "row-item";
+      row.innerHTML = `
+        <div class="row-info">
+          <div class="app-icon-badge">${app.icon}</div>
+          <div>
+            <div class="row-title">${t(app.nameKey)}</div>
+            <div class="row-subtitle">${isBlocked ? t("blocked") : t("allowed")}</div>
+          </div>
+        </div>
+        <label class="switch">
+          <input type="checkbox" ${isBlocked ? "checked" : ""} onchange="toggleAppBlock('${app.id}', this.checked)">
+          <span class="slider"></span>
+        </label>
+      `;
+      list.appendChild(row);
+    });
+  }
+
+  function toggleAppBlock(appId, blocked) {
+    state.apps[appId] = blocked;
+    renderParentApps();
+    renderChildApps();
+    saveToRemote(`families/${state.code}/apps/${appId}`, blocked);
+  }
+
+  function setAllApps(blocked) {
+    APPS.forEach(a => { state.apps[a.id] = blocked; });
+    renderParentApps();
+    renderChildApps();
+    saveToRemote(`families/${state.code}/apps`, state.apps);
+  }
+
+  function toggleBedtime(checked) {
+    state.bedtime.on = checked;
+    saveToRemote(`families/${state.code}/bed/on`, checked);
+    renderChildApps();
+  }
+
+  function updateBedtimeHours() {
+    state.bedtime.from = document.getElementById("bedtime-from").value;
+    state.bedtime.to = document.getElementById("bedtime-to").value;
+    saveToRemote(`families/${state.code}/bed`, state.bedtime);
+  }
+
+  function renderLogs() {
+    const c = document.getElementById("activity-logs");
+    if (!state.logs || state.logs.length === 0) {
+      c.innerHTML = `<div style="text-align: center; color: var(--ink-soft); font-size: 13px; padding: 12px;">${t("noActivity")}</div>`;
+      return;
+    }
+    c.innerHTML = "";
+    state.logs.slice().reverse().forEach(log => {
+      const item = document.createElement("div");
+      item.className = "log-item";
+      const app = APPS.find(a => a.id === log.appId);
+      const appName = app ? t(app.nameKey) : log.appName || log.appId;
+      item.innerHTML = `
+        <div><strong>${appName}</strong> <span style="color:var(--danger); font-size:11px;">🔒 ${t("blocked")}</span></div>
+        <div class="log-time">${log.time || ""}</div>
+      `;
+      c.appendChild(item);
+    });
+  }
+
+  // Child Logic
+  function connectChild() {
+    const inp = document.getElementById("input-child-code").value.trim().toUpperCase();
+    if (inp.length !== 8) {
+      alert("Please enter a valid 8-character Family Code");
+      return;
+    }
+    state.code = inp;
+    localStorage.setItem("fg_code", inp);
+    initChild();
+    fetchRemoteData();
+  }
+
+  function initChild() {
+    showScreen("screen-child-home");
+    renderChildApps();
+    fetchRemoteData();
+  }
+
+  function isBedtimeActive() {
+    if (!state.bedtime || !state.bedtime.on) return false;
+    const now = new Date();
+    const curMinutes = now.getHours() * 60 + now.getMinutes();
+
+    const [fh, fm] = (state.bedtime.from || "21:00").split(":").map(Number);
+    const [th, tm] = (state.bedtime.to || "07:00").split(":").map(Number);
+    const start = fh * 60 + fm;
+    const end = th * 60 + tm;
+
+    if (start > end) {
+      return curMinutes >= start || curMinutes < end;
+    } else {
+      return curMinutes >= start && curMinutes < end;
+    }
+  }
+
+  function renderChildApps() {
+    const grid = document.getElementById("child-app-grid");
+    if (!grid) return;
+    grid.innerHTML = "";
+    const bedtimeActive = isBedtimeActive();
+
+    const statusEl = document.getElementById("child-bedtime-status");
+    if (statusEl) statusEl.style.display = bedtimeActive ? "inline-block" : "none";
+
+    APPS.forEach(app => {
+      const isBlocked = !!state.apps[app.id] || bedtimeActive;
+      const card = document.createElement("div");
+      card.className = "child-app-card" + (isBlocked ? " locked" : "");
+      card.onclick = () => onChildTapApp(app, isBlocked, bedtimeActive);
+      card.innerHTML = `
+        ${isBlocked ? '<span class="lock-badge">🔒</span>' : ''}
+        <div class="child-app-icon">${app.icon}</div>
+        <div class="child-app-name">${t(app.nameKey)}</div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  function onChildTapApp(app, isBlocked, bedtimeActive) {
+    const modal = document.getElementById("app-modal");
+    const icon = document.getElementById("modal-icon");
+    const title = document.getElementById("modal-title");
+    const desc = document.getElementById("modal-desc");
+    const btn = document.getElementById("modal-btn");
+
+    if (isBlocked) {
+      icon.className = "modal-icon locked";
+      icon.innerText = "🔒";
+      title.innerText = `${t(app.nameKey)}`;
+      desc.innerText = bedtimeActive ? t("bedtimeMsg") : t("lockedMsg");
+      btn.innerText = t("close");
+      btn.onclick = closeModal;
+
+      // Log attempt to parent
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      const newLog = { appId: app.id, appName: t(app.nameKey), time: timeStr, ts: Date.now() };
+      saveToRemote(`families/${state.code}/logs/${Date.now()}`, newLog);
+    } else {
+      icon.className = "modal-icon allowed";
+      icon.innerText = app.icon;
+      title.innerText = `${t(app.nameKey)}`;
+      desc.innerText = t("tapApp");
+      btn.innerText = t("launchApp");
+      btn.onclick = () => {
+        closeModal();
+        alert(`Launching ${t(app.nameKey)}...`);
+      };
+    }
+    modal.classList.add("active");
+  }
+
+  function closeModal() {
+    document.getElementById("app-modal").classList.remove("active");
+  }
+
+  // Firebase Remote Sync
+  async function fetchRemoteData() {
+    if (!state.code) return;
+    try {
+      const res = await fetch(`${DB_BASE}/families/${state.code}.json`);
+      if (res.ok) {
+        const data = await res.json();
+        if (data) {
+          if (data.apps) state.apps = data.apps;
+          if (data.bed) state.bedtime = data.bed;
+          if (data.logs) {
+            state.logs = Object.values(data.logs);
+            renderLogs();
+          }
+          if (state.role === "parent") {
+            renderParentApps();
+            document.getElementById("bedtime-toggle").checked = !!state.bedtime.on;
+          } else if (state.role === "child") {
+            renderChildApps();
+          }
+        }
+      }
+    } catch (err) {
+      console.warn("Offline or sync error", err);
+    }
+  }
+
+  async function saveToRemote(path, value) {
+    try {
+      await fetch(`${DB_BASE}/${path}.json`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(value)
+      });
+    } catch (err) {
+      console.warn("Save remote error", err);
+    }
+  }
+
+  function syncRemote() {
+    fetchRemoteData();
+  }
+
+  // Auto-polling for real-time remote syncing
+  setInterval(fetchRemoteData, 3000);
+
+  // Boot Application
+  window.addEventListener("DOMContentLoaded", () => {
+    applyTranslations();
+    if (!state.role) {
+      showScreen("screen-role");
+    } else if (state.role === "parent") {
+      initParent();
+    } else {
+      if (state.code) initChild(); else showScreen("screen-child-connect");
+    }
+  });
+</script>
+</body>
+</html>
